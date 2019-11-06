@@ -30,6 +30,11 @@ RUN set -ex; \
         sed -i -e "/^#LoadModule ${i}_module.*/s/^#//" "conf/httpd.conf"; \
     done; \
     \
+    # Make sure directory module is disabled.
+    for i in dir; do \
+        sed -i -e "/^LoadModule ${i}_module.*/s/^LoadModule/#LoadModule/" "conf/httpd.conf"; \
+    done; \
+    \
     # Run httpd as "www-data" (instead of "daemon").
     for i in User Group; do \
         sed -i -e "s|^$i .*|$i www-data|" "conf/httpd.conf"; \
