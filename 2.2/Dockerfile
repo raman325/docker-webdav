@@ -1,4 +1,4 @@
-FROM httpd:alpine
+FROM httpd:2.2-alpine
 
 # These variables are inherited from the httpd:alpine image:
 # ENV HTTPD_PREFIX /usr/local/apache2
@@ -16,12 +16,12 @@ RUN set -ex; \
     chown -R www-data:www-data "/var/lib/dav"; \
     \
     # Enable DAV modules.
-    for i in dav dav_fs; do \
+    for i in dav dav_fs dav_lock; do \
         sed -i -e "/^#LoadModule ${i}_module.*/s/^#//" "conf/httpd.conf"; \
     done; \
     \
     # Make sure authentication modules are enabled.
-    for i in authn_core authn_file authz_core authz_user auth_basic auth_digest; do \
+    for i in authn_file authz_user auth_basic auth_digest; do \
         sed -i -e "/^#LoadModule ${i}_module.*/s/^#//" "conf/httpd.conf"; \
     done; \
     \

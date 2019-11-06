@@ -58,7 +58,7 @@ if [ ! -e "/user.passwd" ]; then
             HASH="`printf '%s' "$USERNAME:$REALM:$PASSWORD" | md5sum | awk '{print $1}'`"
             printf '%s\n' "$USERNAME:$REALM:$HASH" > /user.passwd
         else
-            htpasswd -B -b -c "/user.passwd" $USERNAME $PASSWORD
+            htpasswd -b -c "/user.passwd" $USERNAME $PASSWORD
         fi
     fi
 fi

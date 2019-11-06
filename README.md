@@ -1,6 +1,8 @@
+This fork from [BytemarkHosting/docker-webdav](https://github.com/BytemarkHosting/docker-webdav) reverts Apache to version 2.2. Auth directive and loaded auth modules were updated based on 2.2 vs 2.4.
+
 ## Supported tags
 
-* [`2.4`, `latest` (*2.4/Dockerfile*)](https://github.com/BytemarkHosting/docker-webdav/blob/master/2.4/Dockerfile)
+* [`2.2`, `latest` (*2.2/Dockerfile*)](https://github.com/raman325/docker-webdav/blob/master/2.2/Dockerfile)
 
 ## Quick reference
 
